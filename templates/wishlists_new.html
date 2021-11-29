@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+
+<form method="POST" action="/wishlists">
+  <h2>Create a New Wishlist</h2>
+  {% include 'partials/wishlists_form.html' %}
+  <!-- BUTTON -->
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">Create</button>
+  </div>
+</form>
+
+{% endblock %}
