@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>Add a New Item</h2>
+<form action="/wishlists/{{ wishlist_id }}/add-item" method="POST">
+  <input type="hidden" value="{{ wishlist_id }}" name="wishlist_id" />
+  <fieldset>
+    <legend></legend>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input class="form-control" id="title" name="title" value="" required />
+    </div>
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input class="form-control" id="comment" name="comment" value="" />
+    </div>
+    <div class="form-group">
+      <label for="link">Link</label>
+      <input class="form-control" id="link" name="link" value="" />
+    </div>
+  </fieldset>
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">Add Item</button>
+  </div>
+</form>
+{% endblock %}

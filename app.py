@@ -28,8 +28,13 @@ def wishlists_new():
 @app.route('/wishlists/<wishlist_id>')
 def wishlists_show(wishlist_id):
   wishlist = lists.find_one({'_id':ObjectId(wishlist_id)})
-  return render_template('wishlists_view.html', wishlist=wishlist)
+  wishlist_items = items.find({'wishlist_id':wishlist_id})
 
+  return render_template('wishlist.html', wishlist=wishlist, items=wishlist_items)
+
+@app.route('/wishlists/<wishlist_id>/add-item')
+def add_item(wishlist_id):
+  return render_template('add_item.html', wishlist_id=wishlist_id)
 
 # ----------- CREATE WISHLIST --------------------------------- #
 @app.route('/wishlists', methods=['POST'])
@@ -41,7 +46,23 @@ def wishlist_create():
   lists.insert_one(wishlist)
   return redirect(url_for('wish4_index'))
 
+# ----------- CREATE ITEM --------------------------------- #
+@app.route('/wishlists/<wishlist_id>/add-item', methods=["POST"])
+def item_create(wishlist_id):
+  item={
+    'wishlist_id': wishlist_id,
+    'title': request.form.get('title'),
+    'comment':request.form.get('comment'),
+    'link':request.form.get('link')
+  }
+  items.insert_one(item)
+  print(f"\n {item['wishlist_id']} \n")
+  print('yes!!!!!')
+  return redirect(url_for('wishlists_show', wishlist_id=item['wishlist_id']))
+  #wishlist_id=item["wishlist_id"]))
+
+
 
 # ----------- RUN ----------------------------------------------------- #
 if __name__ == '__main__':
-    app.run(debug=True)                          
+    app.run(debug=True)    

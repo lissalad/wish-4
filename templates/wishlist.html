@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<div class="d-flex">
+  <h1>{{ wishlist.title }}</h1>
+  <a
+    href="/wishlists/{{wishlist._id}}/add-item"
+    class="btn btn-default navbar-btn bg-primary h-auto d-flex align-items-center"
+    >Add Item</a
+  >
+  <h3>{{ wishlist.description }}</h3>
+  {% for item in items %}
+  <h2>{{ item.title }}</h2>
+  <h2>{{ item.comment }}</h2>
+  <h2>{{ item.link }}</h2>
+
+  {% endfor %}
+</div>
+{% endblock %}
