@@ -1,11 +1,13 @@
 {% extends 'base.html' %} {% block content %}
-
-<div class="row mt-5">
-  {% for wishlist in lists %}
-  <div class="col-md-3">
-    <h2><a href="/wishlists/{{ wishlist._id }}">{{ wishlist.title }}</a></h2>
-    <small>{{ wishlist.description }}</small>
+<div class="d-flex flex-row justify-content-around">
+  <div>
+    {% for wishlist in lists %}
+    <div class="m-5">
+      <h2><a href="/wishlists/{{ wishlist._id }}">{{ wishlist.title }}</a></h2>
+      <small>{{ wishlist.description }}</small>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
+  <img src="./static/images/macy-mailbox.png" class="resizable" />
 </div>
 {% endblock %}

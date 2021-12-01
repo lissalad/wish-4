@@ -44,7 +44,7 @@ def wishlist_create():
     'description': request.form.get('description')
     }
   lists.insert_one(wishlist)
-  return redirect(url_for('wish4_index'))
+  return redirect(url_for('wishlists_show'))
 
 # ----------- CREATE ITEM --------------------------------- #
 @app.route('/wishlists/<wishlist_id>/add-item', methods=["POST"])
@@ -53,7 +53,8 @@ def item_create(wishlist_id):
     'wishlist_id': wishlist_id,
     'title': request.form.get('title'),
     'comment':request.form.get('comment'),
-    'link':request.form.get('link')
+    'link':request.form.get('link'),
+    'img_address':request.form.get('img_address')
   }
   items.insert_one(item)
   print(f"\n {item['wishlist_id']} \n")

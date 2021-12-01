@@ -1,0 +1,67 @@
+body {
+  /* background-image: url("/static/images/trees.png"); */
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.btn {
+  font-size: 0.9em;
+  height: fit-content;
+  width: fit-content;
+}
+
+nav {
+  background-color: rgb(190, 135, 131);
+  color: antiquewhite;
+  margin-bottom: 50px;
+}
+
+h1,
+h5 > nav,
+.btn {
+  color: rgb(255, 254, 251);
+}
+
+#greeting {
+  font-size: 4em;
+}
+
+#list {
+  background-color: rgba(222, 184, 135, 0.685);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 7%;
+}
+
+.item-image {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.resizable {
+  height: auto;
+  width: 40%;
+}
+
+.create-form {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(209, 225, 255);
+  border-radius: 20px;
+  padding: 20px;
+  min-width: 40%;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+fieldset {
+  margin: 20px 0 20px 0;
+}
