@@ -1,0 +1,35 @@
+<fieldset>
+  <legend></legend>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      class="form-control"
+      id="title"
+      name="title"
+      value="{{ item.title if item else '' }}"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <input
+      class="form-control"
+      id="comment"
+      name="comment"
+      value="{{ item.comment if item else '' }}"
+    />
+  </div>
+  <div class="form-group">
+    <label for="link">Link</label>
+    <input class="form-control" id="link" name="link" value="{{ item.link if item else '' }}" />
+  </div>
+  <div class="form-group">
+    <label for="img_address">Image Address</label>
+    <input
+      class="form-control"
+      id="img_address"
+      name="img_address"
+      value="{{ item.img_address if item else '' }}"
+    />
+  </div>
+</fieldset>

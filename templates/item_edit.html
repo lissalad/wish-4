@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <section>
-  <form action="/wishlists/{{ wishlist_id }}/add-item" method="POST" class="create-form">
-    <h2>Add a New Item</h2>
+  <form action="/wishlists/{{ wishlist_id }}" method="POST" class="create-form">
+    <h2>Edit Item</h2>
     <input type="hidden" value="{{ wishlist_id }}" name="wishlist_id" />
     {% include 'partials/item_form.html' %}
 
     <div class="form-group form-btn">
-      <button class="btn btn-primary" type="submit">Add Item</button>
+      <button class="btn btn-primary" type="submit">Save</button>
     </div>
   </form>
 </section>

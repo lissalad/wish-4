@@ -2,10 +2,21 @@
   <legend></legend>
   <div class="form-group">
     <label for="wishlist-title">Title</label>
-    <input class="form-control" id="title" name="title" value="" required />
+    <input
+      class="form-control"
+      id="title"
+      name="title"
+      value="{{ wishlist.title if wishlist else '' }}"
+      required
+    />
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <input class="form-control" id="description" name="description" value="" />
+    <input
+      class="form-control"
+      id="description"
+      name="description"
+      value="{{ wishlist.description if wishlist else ''}}"
+    />
   </div>
 </fieldset>

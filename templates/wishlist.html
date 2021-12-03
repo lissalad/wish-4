@@ -9,7 +9,17 @@
     class="btn btn-default navbar-btn bg-primary h-auto d-flex align-items-center"
     >Add Item</a
   >
+  <a
+    href="/wishlists/{{wishlist._id}}/delete"
+    class="btn btn-default navbar-btn bg-primary h-auto d-flex align-items-center"
+    >Delete Wishlist</a
+  >
 </div>
+<a
+  href="/wishlists/{{wishlist._id}}/edit"
+  class="btn btn-default navbar-btn bg-primary h-auto d-flex align-items-center"
+  >Edit</a
+>
 
 <div id="list">
   {% for item in items %}
@@ -22,10 +32,19 @@
         <p>{{ item.comment }}</p>
       </div>
     </div>
+    <a
+      href="/wishlists/{{item._id}}/edit-item"
+      class="btn btn-default navbar-btn bg-primary h-auto d-flex align-items-center"
+      >Edit</a
+    >
+    <form method="POST" action="/wishlists/{{item._id}}/delete">
+      <button class="btn btn-default navbar-btn bg-primary">Remove</button>
+    </form>
     <div>
       <img src="{{ item.img_address }}" height="200" class="item-image" />
     </div>
   </a>
+
   {% endfor %}
 </div>
 {% endblock %}
