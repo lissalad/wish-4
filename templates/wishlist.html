@@ -1,50 +1,54 @@
 {% extends 'base.html' %} {% block content %}
-<div class="d-flex flex-row justify-content-around align-items-center my-5">
-  <div class="d-flex flex-column">
-    <h2>{{ wishlist.title }}</h2>
+<div class="d-flex flex-row align-items-center my-5">
+  <div class="d-flex flex-column mx-auto">
+    <div class="d-flex flex-row align-items-center">
+      <h2>{{ wishlist.title }}</h2>
+      <a
+        href="/wishlists/{{wishlist._id}}/edit"
+        class="btn btn-default navbar-btn bg-info d-flex ml-3"
+        >Edit</a
+      >
+    </div>
     <p>{{ wishlist.description }}</p>
   </div>
   <a
     href="/wishlists/{{wishlist._id}}/add-item"
-    class="btn btn-default navbar-btn bg-primary h-auto d-flex align-items-center"
+    class="btn btn-default navbar-btn bg-primary d-flex mx-auto align-items-center"
     >Add Item</a
   >
-  <a
-    href="/wishlists/{{wishlist._id}}/delete"
-    class="btn btn-default navbar-btn bg-primary h-auto d-flex align-items-center"
-    >Delete Wishlist</a
-  >
 </div>
-<a
-  href="/wishlists/{{wishlist._id}}/edit"
-  class="btn btn-default navbar-btn bg-primary h-auto d-flex align-items-center"
-  >Edit</a
->
 
-<div id="list">
+<div class="" id="list">
   {% for item in items %}
-  <a class="d-flex align-items-center justify-content-between" href="{{ item.link }}">
-    <div>
-      <div>
-        <h2>{{ item.title }}</h2>
+  <div class="d-flex flex-row">
+    <div class="d-flex flex-column justify-content-start">
+      <div class="d-flex flex-row">
+        <a href="{{ item.link }}">
+          <h2 id="item-title">{{ item.title }}</h2>
+        </a>
+
+        <div class="d-flex flex-row ml-4">
+          <a
+            href="/wishlists/{{item._id}}/edit-item"
+            class="mx-1 btn btn-default navbar-btn bg-info"
+            >Edit</a
+          >
+          <form method="POST" action="/wishlists/{{item._id}}/delete">
+            <button class="mx-1 btn btn-default navbar-btn bg-danger">Remove</button>
+          </form>
+        </div>
       </div>
-      <div>
+
+      <div class="d-flex flex-row">
         <p>{{ item.comment }}</p>
       </div>
     </div>
-    <a
-      href="/wishlists/{{item._id}}/edit-item"
-      class="btn btn-default navbar-btn bg-primary h-auto d-flex align-items-center"
-      >Edit</a
-    >
-    <form method="POST" action="/wishlists/{{item._id}}/delete">
-      <button class="btn btn-default navbar-btn bg-primary">Remove</button>
-    </form>
-    <div>
-      <img src="{{ item.img_address }}" height="200" class="item-image" />
+    <div class="d-flex ml-auto">
+      <div class="">
+        <img src="{{ item.img_address }}" height="200" class="item-image" />
+      </div>
     </div>
-  </a>
-
+  </div>
   {% endfor %}
 </div>
 {% endblock %}

@@ -37,10 +37,13 @@ img {
   /* background-image: url("./static/images/gifts.png") !important; */
 }
 
-.btn {
+.btn,
+button {
   font-size: 0.9em;
   height: fit-content;
   width: fit-content;
+  display: flex;
+  align-items: center;
 }
 
 h1,
@@ -94,6 +97,8 @@ h5 > nav,
   border-radius: 20px;
   padding: 40px;
   margin: 0 7% 0 7%;
+  display: flex;
+  flex-direction: column;
 }
 
 #divider-1 {
@@ -108,4 +113,8 @@ h5 > nav,
   margin-bottom: 0.7vw;
   width: 100px;
   height: auto;
+}
+
+#item-title {
+  font-size: 2.5em;
 }
