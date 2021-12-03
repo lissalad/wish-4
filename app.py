@@ -19,7 +19,7 @@ def wish4_index():
 
 @app.route('/wishlists')
 def wishlists():
-    return render_template('wishlists.html', lists=lists.find())
+    return render_template('wishlists.html', lists=lists.find().sort([['_id',-1]]))
 
 @app.route('/wishlists/new')
 def wishlists_new():
@@ -44,7 +44,7 @@ def wishlist_create():
     'description': request.form.get('description')
     }
   lists.insert_one(wishlist)
-  return redirect(url_for('wishlists_show'))
+  return redirect(url_for('wishlists'))#('wishlists_show'), wishlist_id = wishlist['_id']) # GO TO NEW WISHLIST HOW?
 
 # ----------- CREATE ITEM --------------------------------- #
 @app.route('/wishlists/<wishlist_id>/add-item', methods=["POST"])
@@ -56,6 +56,10 @@ def item_create(wishlist_id):
     'link':request.form.get('link'),
     'img_address':request.form.get('img_address')
   }
+  if item['img_address'] == '':
+    item['img_address'] = '/static/images/gifts.png'
+  if item['link'] == '':
+    item['link'] = 'https://www.google.com/search?q=no+link&oq=no+link&aqs=chrome..69i57j0i512l9.1218j0j4&sourceid=chrome&ie=UTF-8'
   items.insert_one(item)
   print(f"\n {item['wishlist_id']} \n")
   print('yes!!!!!')

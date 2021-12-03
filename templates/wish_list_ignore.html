@@ -4,13 +4,14 @@
     <div>
       <h2 id="your-wishlists">Your Wishlists</h2>
     </div>
-    {% for wishlist in lists %}
-    <div class="text-dark mb-3">
-      <h5 class="mb-1"><a href="/wishlists/{{ wishlist._id }}">{{ wishlist.title }}</a></h5>
-      <p>{{ wishlist.description }}</p>
-    </div>
-    {% endfor %}
   </div>
   <img src="./static/images/macy-mailbox.png" class="resizable mt-4" />
 </div>
-{% endblock %}
+<div class="spacer"></div>
+{% for wishlist in lists %}
+<div class="text-dark">
+  <h2><a href="/wishlists/{{ wishlist._id }}">{{ wishlist.title }}</a></h2>
+  <small>{{ wishlist.description }}</small>
+</div>
+{% endfor %} {% endblock %} 
+</div>

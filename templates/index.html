@@ -1,6 +1,13 @@
 {% extends 'base.html' %} {% block content %}
-<div class="d-flex flex-row justify-content-around align-items-center">
-  <p id="greeting">what do you wish for?</p>
-  <img src="./static/images/macy-window.png" height="400" />
+<div class="d-flex flex-wrap flex-row justify-content-around align-items-center">
+  <div class="d-flex flex-column text-center justify-content-center mb-5">
+    <div>
+    <p class="" id="greeting">what do you wish for?</p>
+    <img id="gifts" src="./static/images/gifts.png">
+  </div>
+    <small id="message">Make it easy for your loved ones. <br>Have all your lists in one place.</small>
+  </div>
+    <img class="resizable mx-3" src="./static/images/macy-window.png" />
+  </div>
+  {% endblock %}
 </div>
-{% endblock %}
