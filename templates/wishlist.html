@@ -5,12 +5,12 @@
       <h2>{{ wishlist.title }}</h2>
       <a
         href="/wishlists/{{wishlist._id}}/edit"
-        class="btn btn-default navbar-btn bg-info d-flex ml-3"
+        class="mx-1 btn btn-default navbar-btn bg-info d-flex ml-3"
         >Edit</a
       >
       <a
         href="/wishlists/{{wishlist._id}}/delete"
-        class="btn btn-default navbar-btn bg-primary h-auto d-flex align-items-center"
+        class="mx-1 btn btn-default navbar-btn bg-danger h-auto d-flex align-items-center"
         >Delete Wishlist</a
       >
     </div>
@@ -23,7 +23,7 @@
   >
 </div>
 
-<div class="" id="list">
+<div class="p-5" id="list">
   {% for item in items %}
   <div class="d-flex flex-row">
     <div class="d-flex flex-column justify-content-start">

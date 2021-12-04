@@ -1,12 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 <div class="d-flex flex-row flex-wrap justify-content-around">
   <div class="d-flex flex-column">
-    <div>
+    <div class="d-flex flex-column align-items-center">
       <h2 id="your-wishlists">Your Wishlists</h2>
+      <img id="divider-1" src="./static/images/decor3.png" />
     </div>
     {% for wishlist in lists %}
-    <div class="text-dark mb-3">
-      <h5 class="mb-1"><a href="/wishlists/{{ wishlist._id }}">{{ wishlist.title }}</a></h5>
+    <div class="text-dark mb-3 text-center">
+      <h4 class="mb-1"><a href="/wishlists/{{ wishlist._id }}">{{ wishlist.title }}</a></h4>
       <p>{{ wishlist.description }}</p>
     </div>
     {% endfor %}

@@ -30,7 +30,11 @@ fieldset {
 nav {
   background-color: rgb(190, 135, 131);
   color: antiquewhite;
-  margin-bottom: 30px;
+  margin-bottom: 4vw;
+}
+
+footer {
+  margin-top: 2vw;
 }
 
 img {
@@ -89,22 +93,21 @@ h5 > nav,
 }
 
 #your-wishlists {
-  margin-bottom: 4.4vw;
+  font-size: 2.5em;
 }
 
 #list {
   background-color: rgba(190, 135, 131, 0.685);
   border-radius: 20px;
-  padding: 40px;
+  /* padding: 40px; */
   margin: 0 7% 0 7%;
   display: flex;
   flex-direction: column;
 }
 
 #divider-1 {
-  margin-top: 1.7vw;
-  margin-bottom: 3.5vw;
-  width: 400px;
+  margin-bottom: 2.2vw;
+  width: 120px;
   height: auto;
 }
 
