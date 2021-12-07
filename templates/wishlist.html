@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <section class="d-flex flex-column" id="wishlist">
-  <div class="d-flex flex-column mx-5">
-    <div class="d-flex flex-row justify-content-center">
+  <div class="d-flex flex-column mx-auto">
+    <div class="d-flex flex-row justify-content-between">
       <div class="d-flex flex-row">
         <div class="d-flex flex-column align-items-center">
           <h2 class="wishlist-title">{{ wishlist.title }}</h2>
@@ -14,7 +14,7 @@
             class="btn btn-default navbar-btn bg-primary important-button text-nowrap"
             >Add Item</a
           >
-          <div class="dropdown show my-2 d-flex">
+          <div class="dropdown show my-2 d-flex align-self-start">
             <a
               class="btn btn-secondary dropdown-toggle"
               href="#"
@@ -26,12 +26,12 @@
             >
               List Options
             </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="/wishlists/{{wishlist._id}}/edit">Edit</a>
+              <a class="dropdown-item" href="/wishlists/{{wishlist._id}}/delete">Delete</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="/wishlists/{{wishlist._id}}/edit">Edit</a>
-        <a class="dropdown-item" href="/wishlists/{{wishlist._id}}/delete">Delete</a>
       </div>
     </div>
   </div>

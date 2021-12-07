@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <section>
-  <form method="POST" action="/wishlists/{{ wishlist._id }}" class="create-form">
+  <div class="d-flex flex-column">
+    <form method="POST" action="/wishlists/{{ wishlist._id }}" class="create-form">
     <h2>Edit Wishlist</h2>
 
     {% include 'partials/wishlists_form.html' %}
@@ -15,6 +16,9 @@
       <button class="btn btn-primary mx-4" type="submit">Save</button>
     </div>
   </form>
+
 </div> 
+<img class="resizable2" src="/static/images/2dogs.png" />
+
 </section>
 {% endblock %}
