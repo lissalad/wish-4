@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 import os
@@ -11,6 +11,7 @@ lists = db.lists
 items = db.items
 
 app = Flask(__name__)
+app.secret_key = '3' 
 
 # ----------- PAGES ----------------------------------------- #
 @app.route('/')
@@ -58,11 +59,13 @@ def wishlist_create():
   lists.insert_one(wishlist)
   # test=  lists.insert_one(wishlist)
   # print(test)
+  flash("Created Wishlist")
   return redirect(url_for('wishlists_show', wishlist_id=wishlist['_id']))
 
 @app.route('/wishlists/<wishlist_id>/delete')
 def wishlist_delete(wishlist_id):
-  lists.delete_one({'_id': ObjectId(wishlist_id)})  
+  lists.delete_one({'_id': ObjectId(wishlist_id)}) 
+  flash("Wishlist Deleted") 
   return redirect(url_for('wishlists'))
 
 @app.route('/wishlists/<wishlist_id>', methods=['POST'])
@@ -72,6 +75,7 @@ def wishlist_update(wishlist_id):
   'description': request.form.get('description')
   }
   lists.update_one({'_id':ObjectId(wishlist_id)}, {'$set': updated})
+  flash("Updated List")
   return redirect(url_for('wishlists_show', wishlist_id=wishlist_id))
 
 # ----------- ITEM --------------------------------- #
@@ -86,11 +90,12 @@ def item_create(wishlist_id):
   }
   if item['img_address'] == '':
     item['img_address'] = '/static/images/gifts.png'
-  if item['link'] == '':
-    item['link'] = 'https://www.google.com/search?q=no+link&oq=no+link&aqs=chrome..69i57j0i512l9.1218j0j4&sourceid=chrome&ie=UTF-8'
+  # if item['link'] == '':
+    # item['link'] = 'https://www.google.com/search?q=no+link&oq=no+link&aqs=chrome..69i57j0i512l9.1218j0j4&sourceid=chrome&ie=UTF-8'
   items.insert_one(item)
   print(f"\n {item['wishlist_id']} \n")
   print('yes!!!!!')
+  flash("Added Item")
   return redirect(url_for('wishlists_show', wishlist_id=item['wishlist_id']))
   #wishlist_id=item["wishlist_id"]))
 
@@ -111,6 +116,7 @@ def item_update(item_id):
   items.update_one(
     {'_id':ObjectId(item_id)},
     {'$set': updated})
+  flash("Updated Item")
   return redirect(url_for('wishlists_show', wishlist_id=item['wishlist_id']))
  
 
@@ -119,6 +125,7 @@ def item_update(item_id):
 def item_delete(item_id):
   item = items.find_one({'_id':ObjectId(item_id)})
   items.delete_one({'_id': ObjectId(item_id)})  
+  flash("Item Deleted")
   return redirect(url_for('wishlists_show', wishlist_id=item['wishlist_id']))
 
 

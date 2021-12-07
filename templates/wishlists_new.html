@@ -1,13 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 <section>
-  <form method="POST" action="/wishlists" class="create-form">
-    <h2>Create a New Wishlist</h2>
+  <div class="d-flex flex-column">
+    <form method="POST" action="/wishlists" class="create-form">
+      <h2>Create a New Wishlist</h2>
 
-    {% include 'partials/wishlists_form.html' %}
-    <!-- BUTTON -->
-    <div class="form-group">
-      <button class="btn btn-primary" type="submit">Create</button>
-    </div>
-  </form>
+      {% include 'partials/wishlists_form.html' %}
+      <!-- BUTTON -->
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Create</button>
+      </div>
+    </form>
+    <img class="resizable2" src="/static/images/2dogs.png" />
+  </div>
 </section>
+
 {% endblock %}

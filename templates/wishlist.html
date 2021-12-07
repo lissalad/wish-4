@@ -1,59 +1,82 @@
 {% extends 'base.html' %} {% block content %}
-<div class="d-flex flex-row align-items-center my-5">
-  <div class="d-flex flex-column mx-auto">
-    <div class="d-flex flex-row align-items-center">
-      <h2>{{ wishlist.title }}</h2>
-      <a
-        href="/wishlists/{{wishlist._id}}/edit"
-        class="mx-1 btn btn-default navbar-btn bg-info d-flex ml-3"
-        >Edit</a
-      >
-      <a
-        href="/wishlists/{{wishlist._id}}/delete"
-        class="mx-1 btn btn-default navbar-btn bg-danger h-auto d-flex align-items-center"
-        >Delete Wishlist</a
-      >
-    </div>
-    <p>{{ wishlist.description }}</p>
-  </div>
-  <a
-    href="/wishlists/{{wishlist._id}}/add-item"
-    class="btn btn-default navbar-btn bg-primary d-flex mx-auto align-items-center"
-    >Add Item</a
-  >
-</div>
-
-<div class="p-5" id="list">
-  {% for item in items %}
-  <div class="d-flex flex-row">
-    <div class="d-flex flex-column justify-content-start">
+<section class="d-flex flex-column" id="wishlist">
+  <div class="d-flex flex-column mx-5">
+    <div class="d-flex flex-row justify-content-center">
       <div class="d-flex flex-row">
-        <a href="{{ item.link }}">
-          <h2 id="item-title">{{ item.title }}</h2>
-        </a>
-
-        <div class="d-flex flex-row ml-4">
+        <div class="d-flex flex-column align-items-center">
+          <h2 class="wishlist-title">{{ wishlist.title }}</h2>
+          <p>{{ wishlist.description }}</p>
+          <img class="" id="divider2" src="/static/images/divider.png" />
+        </div>
+        <div class="d-flex flex-column mx-5 align-items-start">
           <a
-            href="/wishlists/{{item._id}}/edit-item"
-            class="mx-1 btn btn-default navbar-btn bg-info"
-            >Edit</a
+            href="/wishlists/{{wishlist._id}}/add-item"
+            class="btn btn-default navbar-btn bg-primary important-button text-nowrap"
+            >Add Item</a
           >
-          <form method="POST" action="/wishlists/{{item._id}}/delete">
-            <button class="mx-1 btn btn-default navbar-btn bg-danger">Remove</button>
-          </form>
+          <div class="dropdown show my-2 d-flex">
+            <a
+              class="btn btn-secondary dropdown-toggle"
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              List Options
+            </a>
+          </div>
         </div>
       </div>
-
-      <div class="d-flex flex-row">
-        <p>{{ item.comment }}</p>
-      </div>
-    </div>
-    <div class="d-flex ml-auto">
-      <div class="">
-        <img src="{{ item.img_address }}" height="200" class="item-image" />
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="/wishlists/{{wishlist._id}}/edit">Edit</a>
+        <a class="dropdown-item" href="/wishlists/{{wishlist._id}}/delete">Delete</a>
       </div>
     </div>
   </div>
-  {% endfor %}
-</div>
-{% endblock %}
+
+  <div>
+    <div class="d-flex flex-column" id="list">
+      {% for item in items %}
+      <div class="d-flex flex-row">
+        <div class="d-flex flex-column justify-content-center">
+          <div class="d-flex flex-row">
+            <a href="{{ item.link if item.link}}">
+              <h5 id="item-title">{{ item.title }}</h5>
+              <div class="dropdown show mx-3 d-flex align-self-start">
+                <a
+                  class="btn btn-secondary dropdown-toggle"
+                  href="#"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Options
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="/wishlists/{{item._id}}/edit">Edit</a>
+                  <a class="dropdown-item" href="/wishlists/{{item._id}}/delete">Delete</a>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="d-flex flex-row">
+            <p>{{ item.comment }}</p>
+          </div>
+        </div>
+        <div class="d-flex flex-column ml-4"></div>
+        <div class="d-flex ml-auto">
+          <div class="">
+            <img src="{{ item.img_address }}" height="200" class="item-image" />
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endblock %}
+  </div>
+</section>

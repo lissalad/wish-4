@@ -21,7 +21,13 @@
   </div>
   <div class="form-group">
     <label for="link">Link</label>
-    <input class="form-control" id="link" name="link" value="{{ item.link if item else '' }}" />
+    <input
+      class="form-control"
+      id="link"
+      name="link"
+      value="{{ item.link if item else '' }}"
+      type="url"
+    />
   </div>
   <div class="form-group">
     <label for="img_address">Image Address</label>
@@ -30,6 +36,7 @@
       id="img_address"
       name="img_address"
       value="{{ item.img_address if item else '' }}"
+      type="url"
     />
   </div>
 </fieldset>

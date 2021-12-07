@@ -5,9 +5,16 @@
 
     {% include 'partials/wishlists_form.html' %}
     <!-- BUTTON -->
+    <div class='d-flex flex-row'>
+      <a
+        href="/wishlists/{{wishlist._id}}/delete"
+        class="mx-4 btn btn-default navbar-btn bg-danger d-flex align-items-center"
+        >Delete Wishlist</a
+      >
     <div class="form-group">
-      <button class="btn btn-primary" type="submit">Save</button>
+      <button class="btn btn-primary mx-4" type="submit">Save</button>
     </div>
   </form>
+</div> 
 </section>
 {% endblock %}
