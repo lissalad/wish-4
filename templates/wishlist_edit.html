@@ -1,24 +1,25 @@
 {% extends 'base.html' %} {% block content %}
 <section>
-  <div class="d-flex flex-column">
-    <form method="POST" action="/wishlists/{{ wishlist._id }}" class="create-form">
-    <h2>Edit Wishlist</h2>
+  <div class="form">
+    <div class="d-flex flex-column">
+      <form method="POST" action="/wishlists/{{ wishlist._id }}" class="">
+        <h2>Edit Wishlist</h2>
 
-    {% include 'partials/wishlists_form.html' %}
-    <!-- BUTTON -->
-    <div class='d-flex flex-row'>
-      <a
-        href="/wishlists/{{wishlist._id}}/delete"
-        class="mx-4 btn btn-default navbar-btn bg-danger d-flex align-items-center"
-        >Delete Wishlist</a
-      >
-    <div class="form-group">
-      <button class="btn btn-primary mx-4" type="submit">Save</button>
+        {% include 'partials/wishlists_form.html' %}
+        <!-- BUTTON -->
+        <div class="d-flex flex-row">
+          <a
+            href="/wishlists/{{wishlist._id}}/delete"
+            class="mx-4 btn btn-default navbar-btn bg-danger d-flex align-items-center"
+            >Delete Wishlist</a
+          >
+          <div class="form-group">
+            <button class="btn btn-primary mx-4" type="submit">Save</button>
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
-
-</div> 
-<img class="resizable2" src="/static/images/2dogs.png" />
-
+    <img class="resizable2" src="/static/images/2dogs.png" />
+  </div>
 </section>
 {% endblock %}

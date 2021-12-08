@@ -45,7 +45,7 @@ def edit_wishlist(wishlist_id):
 @app.route('/wishlists/<item_id>/edit-item')
 def edit_item(item_id):
     item = items.find_one({'_id':ObjectId(item_id)})
-    wishlist = lists.find_one({'_id':item['wishlist_id']})
+    wishlist = lists.find_one({'_id':ObjectId(item['wishlist_id'])})
     return render_template('item_edit.html', item=item,wishlist=wishlist)
 
 
@@ -89,7 +89,7 @@ def item_create(wishlist_id):
     'img_address':request.form.get('img_address')
   }
   if item['img_address'] == '':
-    item['img_address'] = '/static/images/gifts.png'
+    item['img_address'] = "https://cdn.pixabay.com/photo/2017/09/29/04/15/gift-2797843__480.png"
   # if item['link'] == '':
     # item['link'] = 'https://www.google.com/search?q=no+link&oq=no+link&aqs=chrome..69i57j0i512l9.1218j0j4&sourceid=chrome&ie=UTF-8'
   items.insert_one(item)
@@ -99,9 +99,11 @@ def item_create(wishlist_id):
   return redirect(url_for('wishlists_show', wishlist_id=item['wishlist_id']))
   #wishlist_id=item["wishlist_id"]))
 
-@app.route('/wishlists/<item_id>', methods=['POST'])
+@app.route('/wishlists/save-item/<item_id>', methods=['POST'])
 def item_update(item_id):
   item = items.find_one({'_id':ObjectId(item_id)})
+  print(item_id)
+  print(item)
   updated={
   'wishlist_id': item['wishlist_id'],
   'title': request.form.get('title'),
@@ -110,9 +112,8 @@ def item_update(item_id):
   'img_address':request.form.get('img_address')
 }
   if updated['img_address'] == '':
-    updated['img_address'] = '/static/images/gifts.png'
-  if updated['link'] == '':
-    updated['link'] = 'https://www.google.com/search?q=no+link&oq=no+link&aqs=chrome..69i57j0i512l9.1218j0j4&sourceid=chrome&ie=UTF-8'
+    updated['img_address'] = "https://cdn.pixabay.com/photo/2017/09/29/04/15/gift-2797843__480.png"
+  
   items.update_one(
     {'_id':ObjectId(item_id)},
     {'$set': updated})
@@ -120,8 +121,7 @@ def item_update(item_id):
   return redirect(url_for('wishlists_show', wishlist_id=item['wishlist_id']))
  
 
-
-@app.route('/wishlists/<item_id>/delete', methods=['POST'])
+@app.route('/wishlists/<item_id>/delete-item')
 def item_delete(item_id):
   item = items.find_one({'_id':ObjectId(item_id)})
   items.delete_one({'_id': ObjectId(item_id)})  

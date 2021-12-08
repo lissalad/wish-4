@@ -1,13 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 <section>
-  <form action="/wishlists/{{ wishlist_id }}" method="POST" class="create-form">
-    <h2>Edit Item</h2>
-    <input type="hidden" value="{{ wishlist_id }}" name="wishlist_id" />
-    {% include 'partials/item_form.html' %}
+  <div class="form">
+    <div>
+      <form action="/wishlists/save-item/{{ item._id }}" method="POST" class="create-form">
+        <h2>Edit Item</h2>
+        <input type="hidden" value="{{ wishlist._id }}" name="{{ wishlist._id }}" />
+        {% include 'partials/item_form.html' %}
 
-    <div class="form-group form-btn">
-      <button class="btn btn-primary" type="submit">Save</button>
+        <div class="form-group form-btn">
+          <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+      </form>
     </div>
-  </form>
+    <img class="resizable2" src="/static/images/macy-present.png" />
+  </div>
 </section>
 {% endblock %}

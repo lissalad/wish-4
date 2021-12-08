@@ -1,41 +1,44 @@
 {% extends 'base.html' %} {% block content %}
+
 <section class="d-flex flex-column" id="wishlist">
-  <div class="d-flex flex-column mx-auto">
-    <div class="d-flex flex-row justify-content-between">
-      <div class="d-flex flex-row">
-        <div class="d-flex flex-column align-items-center">
-          <h2 class="wishlist-title">{{ wishlist.title }}</h2>
-          <p>{{ wishlist.description }}</p>
-          <img class="" id="divider2" src="/static/images/divider.png" />
-        </div>
-        <div class="d-flex flex-column mx-5 align-items-start">
-          <a
-            href="/wishlists/{{wishlist._id}}/add-item"
-            class="btn btn-default navbar-btn bg-primary important-button text-nowrap"
-            >Add Item</a
-          >
-          <div class="dropdown show my-2 d-flex align-self-start">
-            <a
-              class="btn btn-secondary dropdown-toggle"
-              href="#"
-              role="button"
-              id="dropdownMenuLink"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              List Options
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="/wishlists/{{wishlist._id}}/edit">Edit</a>
-              <a class="dropdown-item" href="/wishlists/{{wishlist._id}}/delete">Delete</a>
-            </div>
-          </div>
+  <!--------------- WISHLIST HEADER ------------------------------->
+  <div class="d-flex flex-row flex-wrap justify-content-center wishlist-header">
+    <!--------------- WISHLIST TITLE ------------------------------->
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <h2 class="wishlist-title">{{ wishlist.title }}</h2>
+      <div class="d-flex flex-row align-items-start">
+        <p>{{ wishlist.description }}</p>
+      </div>
+      <img width="200" id="divider2" src="/static/images/divider.png" />
+    </div>
+    <!--------------- WISHLIST BUTTONS ------------------------------->
+    <div class="d-flex flex-column align-items-center ml-2 mt-3">
+      <a
+        href="/wishlists/{{wishlist._id}}/add-item"
+        class="btn btn-default navbar-btn bg-primary important-button text-nowrap"
+        >Add Item</a
+      >
+      <div class="dropdown show d-flex align-self-start">
+        <a
+          class="btn btn-secondary dropdown-toggle"
+          href="#"
+          role="button"
+          id="dropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Options
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/wishlists/{{wishlist._id}}/edit">Edit</a>
+          <a class="dropdown-item" href="/wishlists/{{wishlist._id}}/delete">Delete</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!--------------- LIST OF ITEMS ------------------------------->
   <div>
     <div class="d-flex flex-column" id="list">
       {% for item in items %}
@@ -57,8 +60,8 @@
                   Options
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="/wishlists/{{item._id}}/edit">Edit</a>
-                  <a class="dropdown-item" href="/wishlists/{{item._id}}/delete">Delete</a>
+                  <a class="dropdown-item" href="/wishlists/{{item._id}}/edit-item">Edit</a>
+                  <a class="dropdown-item" href="/wishlists/{{item._id}}/delete-item">Delete</a>
                 </div>
               </div>
             </a>

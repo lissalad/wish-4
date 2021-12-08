@@ -1,17 +1,19 @@
 {% extends 'base.html' %} {% block content %}
-<div class="d-flex flex-row flex-wrap justify-content-around">
-  <div class="d-flex flex-column">
-    <div class="d-flex flex-column align-items-center">
-      <h2 id="your-wishlists">Your Wishlists</h2>
-      <img id="divider" src="./static/images/decor3.png" />
+<section>
+  <div class="d-flex flex-row flex-wrap justify-content-around">
+    <div class="d-flex flex-column">
+      <div class="d-flex flex-column align-items-center">
+        <h2 id="your-wishlists">Your Wishlists</h2>
+        <img id="divider" src="./static/images/decor3.png" />
+      </div>
+      {% for wishlist in lists %}
+      <div class="text-dark mb-3 text-center">
+        <h4 class="mb-1"><a href="/wishlists/{{ wishlist._id }}">{{ wishlist.title }}</a></h4>
+        <p>{{ wishlist.description }}</p>
+      </div>
+      {% endfor %}
     </div>
-    {% for wishlist in lists %}
-    <div class="text-dark mb-3 text-center">
-      <h4 class="mb-1"><a href="/wishlists/{{ wishlist._id }}">{{ wishlist.title }}</a></h4>
-      <p>{{ wishlist.description }}</p>
-    </div>
-    {% endfor %}
+    <img src="./static/images/macy-mailbox.png" class="resizable mt-4 mx-3 mb-3" />
   </div>
-  <img src="./static/images/macy-mailbox.png" class="resizable mt-4" />
-</div>
-{% endblock %}
+  {% endblock %}
+</section>

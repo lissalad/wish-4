@@ -4,11 +4,39 @@ body {
   background-position: fixed;
   background-repeat: no-repeat;
   height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+}
+
+nav {
+  background-color: rgb(190, 135, 131);
+  color: antiquewhite;
+  margin-bottom: 2.7vw;
 }
 
 main {
   margin: 0 4% 4% 4%;
 }
+
+footer {
+  height: 100px;
+  margin-top: auto;
+}
+
+main .btn {
+  font-size: 0.8em;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 3px 5px 3px 5px;
+  margin-bottom: 1vw;
+}
+
 a {
   text-decoration: none !important;
   color: black;
@@ -18,28 +46,8 @@ a:hover {
   color: crimson;
 }
 
-section {
-  display: flex;
-  justify-content: center;
-}
-
 fieldset {
-  margin: 20px 0 20px 0;
-}
-
-nav {
-  background-color: rgb(190, 135, 131);
-  color: antiquewhite;
-  margin-bottom: 2.7vw;
-}
-
-footer {
-  margin-top: 20px;
-  width: 100%;
-  background-image: url("/static/images/snowflake.png");
-  background-size: 100px;
-  height: 100px;
-  background-repeat: repeat-x;
+  margin: 20px auto 20px auto;
 }
 
 input {
@@ -49,41 +57,43 @@ img {
   /* background-image: url("./static/images/gifts.png") !important; */
 }
 
-.navbar .btn {
-  height: fit-content;
-}
-
-main .btn,
-button {
-  font-size: 0.8em;
-  height: fit-content;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  padding: 3px 5px 3px 5px;
-}
-
 h1,
 h5 > nav,
 .btn {
   color: rgb(255, 254, 251);
 }
 
-.spacer {
-  height: 20px;
+form {
+  margin-top: 3vh;
+  background-color: rgba(148, 180, 206, 0.678);
+  padding: 30px 50px 30px 50px;
+  border-radius: 6px;
+  width: 450px;
 }
 
-#flashes p {
-  padding: 0.3vw;
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
-  margin: -2% auto 2.6% auto;
-  background-color: rgb(209, 225, 255);
-  width: 40%;
+/* .spacer {
+  height: 20px;
+} */
+
+.flashes {
+  margin: -1% auto 0.7% auto;
+  background-color: rgba(148, 180, 206, 0.678);
+  width: 10%;
   display: flex;
   text-align: center;
   justify-content: center;
-  align-self: center;
+  align-content: center;
   border-radius: 4px;
+  font-family: "Alatsi", sans-serif;
+  font-size: 1em;
+  color: white;
 }
 
 .item-image {
@@ -92,50 +102,25 @@ h5 > nav,
   margin-bottom: 20px;
 }
 
-.resizable {
-  max-height: 28vw;
-  min-height: 30vh;
-  width: auto;
-}
-
-.resizable2 {
-  max-width: 15vw;
-  min-width: 30vh;
-  height: auto;
-  margin: 5vh;
-  align-self: center;
-}
-
 .important-button {
   font-size: 1.9em;
   padding: 5px 7px 5px 7px;
 }
 
-.create-form {
-  display: flex;
-
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(209, 225, 255);
-  border-radius: 20px;
-  padding: 20px;
-  min-width: 40%;
-}
-
 #greeting {
   font-size: 4em;
   line-height: 97%;
-  /* max-width: 25vw; */
+  margin-bottom: 2vh;
 }
 
 #message {
   font-size: 1.1em;
-  margin-bottom: 2vw;
+  margin-bottom: 0vw;
 }
 
 #your-wishlists {
   font-size: 2.5em;
-  margin-top: 3vw;
+  margin-top: 1vw;
 }
 
 #wishlist {
@@ -148,15 +133,27 @@ h5 > nav,
 }
 
 #divider {
-  margin-bottom: 14%;
+  margin-bottom: 4vw;
   width: 100px;
   height: auto;
 }
 
-#divider2 {
-  width: 200px;
+.wishlist-header {
+  margin-bottom: 7.5vh;
+}
+
+.resizable {
+  max-height: 25vw;
+  min-height: 30vh;
+  width: auto;
+}
+
+.resizable2 {
+  max-width: 35vw;
+  min-width: 40vh;
   height: auto;
-  margin-bottom: 5.5vh;
+  margin: 5vh;
+  align-self: center;
 }
 
 #gifts {
@@ -173,8 +170,31 @@ h5 > nav,
 .wishlist-title {
   font-size: 3em;
   text-align: center;
+  margin: 10px;
 }
 
-#invisible {
-  color: rgba(240, 248, 255, 0);
+#plus {
+  height: fit-content;
+}
+
+p,
+small,
+h1,
+label,
+button,
+h4,
+h5,
+a,
+#flashes {
+  /* font-family: "Concert One", cursive; */
+  /* font-family: "Gochi Hand", cursive; */
+  /* font-family: "Sarabun", sans-serif; */
+  font-family: "Alatsi", sans-serif;
+}
+
+h2 {
+  /* font-family: "Patrick Hand", cursive; */
+  /* font-family: "ZCOOL QingKe HuangYou", cursive; */
+  /* font-family: "Rum Raisin", sans-serif; */
+  font-family: "Courgette", cursive;
 }
