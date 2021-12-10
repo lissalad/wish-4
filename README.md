@@ -1,6 +1,6 @@
 # Wish4
 
-Website built to hold and organize wishlists, linking to different sites so that all can be stored in one place
+Website built to hold and organize wishlists, linking to different sites so that all can be stored in one place.
 
 ## Getting Started
 
