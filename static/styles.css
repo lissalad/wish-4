@@ -19,7 +19,7 @@ nav {
 }
 
 main {
-  margin: 0 4% 4% 4%;
+  margin: 0 2vw 4% 2vw;
 }
 
 footer {
@@ -27,14 +27,13 @@ footer {
   margin-top: auto;
 }
 
-main .btn {
+.btn {
   font-size: 0.8em;
   height: fit-content;
   width: fit-content;
   display: flex;
   align-items: center;
   padding: 3px 5px 3px 5px;
-  margin-bottom: 1vw;
 }
 
 a {
@@ -71,6 +70,10 @@ form {
   width: 450px;
 }
 
+.container {
+  padding: 0;
+}
+
 .form {
   display: flex;
   flex-direction: row;
@@ -97,7 +100,7 @@ form {
 }
 
 .item-image {
-  max-width: 200px;
+  max-width: 20vw;
   height: auto;
   margin-bottom: 20px;
 }
@@ -154,6 +157,7 @@ form {
   height: auto;
   margin: 5vh;
   align-self: center;
+  margin-top: 9vh;
 }
 
 #gifts {
@@ -171,10 +175,6 @@ form {
   font-size: 3em;
   text-align: center;
   margin: 10px;
-}
-
-#plus {
-  height: fit-content;
 }
 
 p,
@@ -197,4 +197,7 @@ h2 {
   /* font-family: "ZCOOL QingKe HuangYou", cursive; */
   /* font-family: "Rum Raisin", sans-serif; */
   font-family: "Courgette", cursive;
+}
+#plus {
+  padding: 5px 10px 5px 10px;
 }

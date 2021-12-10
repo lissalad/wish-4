@@ -12,15 +12,11 @@
       <img width="200" id="divider2" src="/static/images/divider.png" />
     </div>
     <!--------------- WISHLIST BUTTONS ------------------------------->
-    <div class="d-flex flex-column align-items-center ml-2 mt-3">
-      <a
-        href="/wishlists/{{wishlist._id}}/add-item"
-        class="btn btn-default navbar-btn bg-primary important-button text-nowrap"
-        >Add Item</a
-      >
-      <div class="dropdown show d-flex align-self-start">
+    <div class="d-flex flex-column align-items-center ml-2 mt-3 flex-wrap">
+      <a href="/wishlists/{{wishlist._id}}/add-item" class="btn bg-primary text-nowrap">Add Item</a>
+      <div class="dropdown show d-flex align-self-start mr-auto">
         <a
-          class="btn btn-secondary dropdown-toggle"
+          class="btn dropdown-toggle my-2 bg-secondary"
           href="#"
           role="button"
           id="dropdownMenuLink"
